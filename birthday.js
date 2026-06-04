@@ -1,15 +1,15 @@
-// Праздничный режим на 12 декабря - День Рождения!
+// --- Birthday Mode on December 12th for M1kunya ---
+
 (function() {
     const today = new Date();
     const month = today.getMonth() + 1; // 1-12
     const day = today.getDate(); // 1-31
     
-    // Проверяем, что сегодня 12 декабря
+    // Check if it is December 12th
     if (month === 12 && day === 12) {
-        // Добавляем класс к body для активации праздничных стилей
         document.body.classList.add('birthday-mode');
         
-        // Создаём баннер с поздравлением
+        // Create celebration banner
         const banner = document.createElement('div');
         banner.className = 'birthday-banner';
         banner.innerHTML = `
@@ -21,40 +21,43 @@
         `;
         document.body.insertBefore(banner, document.body.firstChild);
         
-        // Функция создания конфетти
+        // Stars in headers
+        const headerTitle = document.querySelector('.brand-text h1');
+        if (headerTitle && !headerTitle.innerHTML.includes('⭐')) {
+            headerTitle.innerHTML = '⭐ ' + headerTitle.innerHTML + ' ⭐';
+        }
+        
+        // Confetti generator function
         function createConfetti() {
-            const colors = ['#9b59b6', '#8e44ad', '#ff6b9d', '#c44569', '#f8b500', '#ff6b6b', '#4ecdc4', '#95e1d3'];
-            const confettiCount = 50;
+            
+            const colors = ['#a78bfa', '#ec4899', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+            const confettiCount = 35;
             
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + '%';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDelay = Math.random() * 3 + 's';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                // Random size
+                const size = Math.random() * 8 + 6;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                
+                // Random movement
+                confetti.style.animationDelay = Math.random() * 4 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
                 document.body.appendChild(confetti);
                 
-                // Удаляем конфетти после анимации
+                // Cleanup confetti elements
                 setTimeout(() => {
-                    if (confetti.parentNode) {
-                        confetti.parentNode.removeChild(confetti);
-                    }
-                }, 5000);
+                    confetti.remove();
+                }, 7000);
             }
         }
         
-        // Создаём конфетти каждые 3 секунды
+        // Fire confetti cycles
         createConfetti();
-        setInterval(createConfetti, 3000);
-        
-        // Добавляем звёздочки в заголовок
-        const headers = document.querySelectorAll('header h1');
-        headers.forEach(header => {
-            if (!header.innerHTML.includes('⭐')) {
-                header.innerHTML = '⭐ ' + header.innerHTML + ' ⭐';
-            }
-        });
+        setInterval(createConfetti, 4000);
     }
 })();
-

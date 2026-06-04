@@ -3,131 +3,715 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M1kunya - Начинающий программист и IT-энтузиаст</title>
+    <title>M1kunya — Начинающий разработчик & IT-энтузиаст</title>
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="CSS.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-glow"></div>
-        <h1>M1kunya</h1>
-        <p class="header-lead">Роман Беляев · начинающий разработчик и стример</p>
+    <!-- Background glow elements -->
+    <div class="glow-bg-container" aria-hidden="true">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand-section">
+                <div class="avatar-ring">
+                    <img src="https://avatars.githubusercontent.com/u/187798544?v=4" alt="M1kunya Avatar" class="avatar-img">
+                </div>
+                <div class="brand-text">
+                    <h1>M1kunya</h1>
+                    <p class="subtitle">Роман Беляев · начинающий разработчик и стример</p>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <nav class="project-nav">
-        <a href="index.html" class="nav-pill active">Главная Страница</a>
-        <a href="biography.html" class="nav-pill">Биография</a>
-        <a href="team.html" class="nav-pill">Команда</a>
-        <a href="m1kuntweaker.html" class="nav-pill">M1kunTweaker</a>
-        <a href="m1kunnote.html" class="nav-pill">M1kunNote</a>
-        <a href="m1kunread.html" class="nav-pill">M1kunRead</a>
-        <div class="nav-pill mode-toggle">
-            <span class="toggle-label">Облегченная версия</span>
-            <label class="toggle-switch">
-                <input type="checkbox" id="liteToggle" aria-label="Переключатель облегченной версии">
-                <span class="slider" aria-hidden="true"></span>
-            </label>
+    <!-- Navigation Menu -->
+    <nav class="app-nav">
+        <div class="nav-container">
+            <button class="nav-pill active" data-target="home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Главная
+            </button>
+            <button class="nav-pill" data-target="biography">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Биография
+            </button>
+            <button class="nav-pill" data-target="team">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Команда
+            </button>
+            <div class="nav-divider"></div>
+            <button class="nav-pill" data-target="tweaker">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                M1kunTweaker
+            </button>
+            <button class="nav-pill" data-target="note">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                M1kunNote
+            </button>
+            <button class="nav-pill" data-target="read">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                M1kunRead
+            </button>
         </div>
     </nav>
 
-    <main>
-        <section class="page-hero">
-            <div>
-                <h2>Обо мне</h2>
-                <p>M1kunya — начинающий разработчик с фокусом на практичные продукты и AI-подходы. Специализируется на создании лёгких, быстрых и понятных решений для Windows и веба, а также занимается легкой атлетикой.</p>
-            </div>
-            <div class="team-metrics">
-                <div class="metric-card">
-                    <span class="metric-value">3</span>
-                    <span>активных проекта</span>
+    <!-- Main Content Area -->
+    <main class="app-main">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="content-tab active">
+            <div class="hero-card">
+                <div class="hero-info">
+                    <span class="badge-accent">Коротко обо мне</span>
+                    <h2>Создаю практичные решения для Windows и веба</h2>
+                    <p>M1kunya — начинающий разработчик с фокусом на практичные продукты и AI-подходы. Специализируется на создании лёгких, быстрых и понятных решений для Windows и веба, а также занимается легкой атлетикой.</p>
                 </div>
-                <div class="metric-card">
-                    <span class="metric-value">AI</span>
-                    <span>используем для прототипов и документации</span>
-                </div>
-                <div class="metric-card">
-                    <span class="metric-value">Windows</span>
-                    <span>главная платформа и эксперименты</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="skills">
-            <h2>Навыки и технологии</h2>
-            <div class="content-grid">
-                <div class="stat-card">
-                    <strong>Языки программирования</strong>
-                    <p>JavaScript, Python, C++, C#</p>
-                </div>
-                <div class="stat-card">
-                    <strong>Веб</strong>
-                    <p>HTML, CSS</p>
-                </div>
-                <div class="stat-card">
-                    <strong>Базы данных</strong>
-                    <p>MySQL</p>
-                </div>
-                <div class="stat-card">
-                    <strong>Инструменты</strong>
-                    <p>Git, Linux</p>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">🚀</div>
+                        <div class="metric-data">
+                            <span class="metric-val text-accent" data-target="3">0</span>
+                            <span class="metric-lbl">активных проекта</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🤖</div>
+                        <div class="metric-data">
+                            <span class="metric-val text-accent">AI</span>
+                            <span class="metric-lbl">для прототипов и документации</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">💻</div>
+                        <div class="metric-data">
+                            <span class="metric-val text-accent">OS</span>
+                            <span class="metric-lbl">Windows как главная платформа</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Skills & Tech Grid -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Навыки и технологии</h2>
+                    <p>Стек инструментов и языков, которые я активно изучаю и применяю</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category-card">
+                        <div class="card-glow"></div>
+                        <div class="category-icon">🛠️</div>
+                        <h3>Языки программирования</h3>
+                        <p class="skill-list">JavaScript, Python, C++, C#</p>
+                    </div>
+                    <div class="skill-category-card">
+                        <div class="card-glow"></div>
+                        <div class="category-icon">🌐</div>
+                        <h3>Веб-технологии</h3>
+                        <p class="skill-list">HTML, CSS</p>
+                    </div>
+                    <div class="skill-category-card">
+                        <div class="card-glow"></div>
+                        <div class="category-icon">🗄️</div>
+                        <h3>Базы данных</h3>
+                        <p class="skill-list">MySQL</p>
+                    </div>
+                    <div class="skill-category-card">
+                        <div class="card-glow"></div>
+                        <div class="category-icon">🔧</div>
+                        <h3>Инструменты & ОС</h3>
+                        <p class="skill-list">Git, Linux, Windows API</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Projects Grid -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Ключевые проекты</h2>
+                    <p>Программы и утилиты, над которыми я работаю в данный момент</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-preview-card" data-project-link="tweaker">
+                        <div class="card-status danger">В разработке</div>
+                        <h3>M1kunTweaker</h3>
+                        <p>Утилита для улучшения производительности, очистки и визуального оформления операционной системы Windows.</p>
+                        <div class="card-footer">
+                            <span class="tech-tag">Оптимизация</span>
+                            <span class="tech-tag">Кастомизация UI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-preview-card" data-project-link="note">
+                        <div class="card-status danger">В разработке</div>
+                        <h3>M1kunNote</h3>
+                        <p>Легковесный и удобный блокнот с поддержкой Markdown, кастомными темами оформления и синхронизацией заметок.</p>
+                        <div class="card-footer">
+                            <span class="tech-tag">Markdown</span>
+                            <span class="tech-tag">Синхронизация</span>
+                            <span class="tech-tag">Темы</span>
+                        </div>
+                    </div>
+
+                    <div class="project-preview-card" data-project-link="read">
+                        <div class="card-status danger">В разработке</div>
+                        <h3>M1kunRead</h3>
+                        <p>Быстрая и безопасная утилита для записи ISO образов на USB накопители и создания загрузочных флешек.</p>
+                        <div class="card-footer">
+                            <span class="tech-tag">USB & ISO</span>
+                            <span class="tech-tag">UEFI / Legacy</span>
+                            <span class="tech-tag">Запись</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philosophy Section -->
+            <div class="philosophic-banner">
+                <div class="banner-content">
+                    <div class="quote-icon">“</div>
+                    <blockquote>
+                        Хороший программист — это не тот, кто пишет сложный код, а тот, кто решает сложные задачи простым кодом.
+                    </blockquote>
+                    <cite>— Философия разработки M1kunya</cite>
+                </div>
+            </div>
         </section>
 
-        <section class="projects">
-            <h2>Ключевые проекты</h2>
-            <article class="project">
-                <h3>Программа для кастомизации и настройки Windows — M1kunTweaker</h3>
-                <p>M1kunTweaker — утилита для улучшения производительности и визуального оформления Windows.</p>
-                <div class="status-chip danger">В разработке</div>
-                <ul class="tag-list">
-                    <li>Оптимизация</li>
-                    <li>Кастомизация UI</li>
-                </ul>
-            </article>
+        <!-- BIOGRAPHY SECTION -->
+        <section id="biography" class="content-tab">
+            <div class="bio-hero-container">
+                <div class="bio-hero-info">
+                    <span class="badge-accent">Кто стоит за проектами</span>
+                    <h2>Роман Беляев</h2>
+                    <p class="bio-intro">Роман — молодой разработчик и стример с упором на Windows-проекты и исследование AI-инструментов для ускорения работы, а также занимается легкой атлетикой.</p>
+                    
+                    <div class="info-tags">
+                        <span class="pill-badge soft">#Windows</span>
+                        <span class="pill-badge info">#AI + золотые руки</span>
+                        <span class="pill-badge success">#Самоучка</span>
+                    </div>
+                </div>
+                
+                <div class="bio-stats">
+                    <div class="bio-stat-item">
+                        <span class="num text-accent" data-target="12">0</span>
+                        <span class="label">лет</span>
+                    </div>
+                    <div class="bio-stat-item">
+                        <span class="num text-accent" data-target="20">0</span>
+                        <span class="label">зрителей на первых стримах</span>
+                    </div>
+                    <div class="bio-stat-item">
+                        <span class="num text-accent">RU</span>
+                        <span class="label">Ростов-на-Дону</span>
+                    </div>
+                </div>
+            </div>
 
-            <article class="project">
-                <h3>Блокнот — M1kunNote</h3>
-                <p>Блокнот с поддержкой Markdown</p>
-                <div class="status-chip danger">В разработке</div>
-                <ul class="tag-list">
-                    <li>Markdown</li>
-                    <li>Синхронизация</li>
-                    <li>Темы</li>
-                </ul>
-            </article>
+            <div class="bio-content-grid">
+                <!-- Hobbies -->
+                <div class="glass-block">
+                    <h3>Хобби и интересы</h3>
+                    <ul class="styled-list">
+                        <li>
+                            <span class="list-bullet">🎮</span>
+                            <span>Стример на платформе Twitch</span>
+                        </li>
+                        <li>
+                            <span class="list-bullet">💻</span>
+                            <span>Разработка приложений и веб-сайтов</span>
+                        </li>
+                        <li>
+                            <span class="list-bullet">🎨</span>
+                            <span>Дизайн пользовательских интерфейсов</span>
+                        </li>
+                        <li>
+                            <span class="list-bullet">🚀</span>
+                            <span>Изучение новых технологий и языков</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <article class="project">
-                <h3>Программа для записи ISO — M1kunRead</h3>
-                <p>Запись ISO на флешку и создание загрузочных носителей с проверкой целостности.</p>
-                <div class="status-chip danger">В разработке</div>
-                <ul class="tag-list">
-                    <li>USB Для переустановки систем</li>
-                    <li>UEFI/Legacy</li>
-                    <li>Windows/Linux</li>
-                </ul>
-            </article>
+                <!-- Story -->
+                <div class="glass-block">
+                    <h3>История жизни</h3>
+                    <div class="bio-text">
+                        <p>Роман родился и вырос в городе Ростов-на-Дону, где и проживает по сей день. Его путь в мире технологий начался с самостоятельного изучения программирования, что стало отправной точкой для развития его карьеры.</p>
+                        <p>Стримерская деятельность началась после успешного эксперимента на платформе Twitch, где Роман впервые набрал 20 зрителей за один стрим. Этот опыт вдохновил его на дальнейшее развитие в данном направлении.</p>
+                        <p>На протяжении своей карьеры Роман столкнулся с различными вызовами, включая потерю исходного кода проектов, что только укрепило его навыки и опыт в разработке.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Highlights -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Ключевые моменты карьеры</h2>
+                    <p>Важные вехи, сформировавшие подход к кодингу</p>
+                </div>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="hl-number">01</div>
+                        <h3>Дважды терял исходный код</h3>
+                        <p>Эти инциденты научили важности резервного копирования и управления версиями кода (Git), что значительно улучшило его подход к разработке.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-number">02</div>
+                        <h3>Быстрое изучение технологий</h3>
+                        <p>Легко освоил такие языки программирования как JavaScript, Python, C++, C#, что демонстрирует его способности к быстрому обучению.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-number">03</div>
+                        <h3>Самостоятельное развитие</h3>
+                        <p>Все свои навыки в разработке и стриминге Роман приобрел благодаря собственной инициативе, упорству и практике.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-number">04</div>
+                        <h3>Использование нейросетей</h3>
+                        <p>Роман следит за бэкендом кода, в то время как нейросеть помогает с фронтендом. Это позволяет оптимизировать процесс и ускорить релизы.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="philosophic-banner alt-style">
+                <div class="banner-content">
+                    <blockquote class="philosophy-quote">
+                        "Каждый вызов — это возможность для роста. Потеря кода не означает поражение, а дает шанс создать что-то еще лучшее."
+                    </blockquote>
+                </div>
+            </div>
         </section>
 
-        <section class="philosophy">
-            <h2>Философия разработки</h2>
-            <p>M1kunya следует принципам чистого кода, модульной архитектуры и постоянного саморазвития. Лучший код — тот, что легко читать, поддерживать и расширять.</p>
-            <blockquote>
-                "Хороший программист - это не тот, кто пишет сложный код, а тот, кто решает сложные задачи простым кодом."
-            </blockquote>
+        <!-- TEAM SECTION -->
+        <section id="team" class="content-tab">
+            <div class="team-hero">
+                <div class="th-info">
+                    <span class="badge-accent">Коллаборация и рост</span>
+                    <h2>Кто мы</h2>
+                    <p>Мы небольшая, но гибкая команда, объединяющая разработку, дизайн и эксперименты с нейросетями. Фокусируемся на продуктах, которые делают работу пользователей проще и приятнее.</p>
+                </div>
+                <div class="th-metrics">
+                    <div class="metric-min">
+                        <span class="val">3</span>
+                        <span class="lbl">ключевых направления: разработка, дизайн, комьюнити</span>
+                    </div>
+                    <div class="metric-min">
+                        <span class="val">24/7</span>
+                        <span class="lbl">улучшаем продукты и документацию</span>
+                    </div>
+                    <div class="metric-min">
+                        <span class="val">∞</span>
+                        <span class="lbl">идей и экспериментов с AI-подходами</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-split-grid">
+                <!-- Classes of participants -->
+                <div class="glass-block">
+                    <h3>Классы участников</h3>
+                    <div class="class-cards">
+                        <div class="class-card">
+                            <h4>Комьюнити тестировщиков</h4>
+                            <p class="role-sub">Обратная связь и тесты</p>
+                            <p>Помогают находить баги, предлагают улучшения и проверяют стабильность сборок на разных версиях систем Windows 10/11.</p>
+                        </div>
+                        <div class="class-card">
+                            <h4>AI-ассистенты</h4>
+                            <p class="role-sub">Исследования и автоматизация</p>
+                            <p>Генерируют идеи, ускоряют написание кода и документации, помогают прототипировать функции интерфейсов.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How we work -->
+                <div class="glass-block">
+                    <h3>Как мы работаем</h3>
+                    <div class="work-methods">
+                        <div class="method-item">
+                            <span class="m-icon">💎</span>
+                            <div>
+                                <h4>Прозрачность</h4>
+                                <p>Регулярно обновляем планы, версии и статусы. Вся документация и дизайн доступны в открытом виде.</p>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <span class="m-icon">🧪</span>
+                            <div>
+                                <h4>Эксперименты</h4>
+                                <p>Тестируем новые подходы к Windows API, автотестам и интеграции AI, чтобы ускорить наши релизы.</p>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <span class="m-icon">📣</span>
+                            <div>
+                                <h4>Коммуникация</h4>
+                                <p>Поддерживаем быстрые циклы обратной связи с пользователями через Telegram и GitHub Issues.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features / Advantages -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Наши преимущества</h2>
+                    <p>Что делает наш подход эффективным</p>
+                </div>
+                <div class="advantages-grid">
+                    <div class="adv-card">
+                        <div class="adv-icon">🚀</div>
+                        <h4>Быстрые релизы</h4>
+                        <p>Маленькая команда и короткие циклы — быстрее проверяем идеи, фиксим баги и выкатываем улучшения.</p>
+                    </div>
+                    <div class="adv-card">
+                        <div class="adv-icon">🤝</div>
+                        <h4>Открытость</h4>
+                        <p>Этот сайт и проекты лежат и хостятся на GitHub — можно свободно изучать исходный код.</p>
+                    </div>
+                    <div class="adv-card">
+                        <div class="adv-icon">🧠</div>
+                        <h4>Автоматизация</h4>
+                        <p>Активно используем нейросети и скрипты для рутины, чтобы сфокусироваться на качестве продукта.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Team Members -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Участники команды</h2>
+                    <p>Люди, вносящие вклад в развитие экосистемы M1kunya</p>
+                </div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-avatar">👑</div>
+                        <h3>Роман Беляев (@IAmM1kunya)</h3>
+                        <p class="role">Главный по продуктам и релизам</p>
+                        <p class="bio">Создает, определяет приоритеты, следит за качеством сборок и принимает финальные решения по фичам, дизайну и релизам.</p>
+                        <div class="tags-row">
+                            <span class="member-tag">Главный разработчик</span>
+                        </div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">🛡️</div>
+                        <h3>Ликспи (@lixpis)</h3>
+                        <p class="role">Бета-Тестер</p>
+                        <p class="bio">Первый официальный бета-тестер. Проводит детальные проверки и находит редкие баги.</p>
+                        <div class="tags-row">
+                            <span class="member-tag">Tweaker</span>
+                            <span class="member-tag">Note</span>
+                            <span class="member-tag">Read</span>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar">⚡</div>
+                        <h3>Sl1de (@TheNiceBruh)</h3>
+                        <p class="role">Тестировщик оптимизаций</p>
+                        <p class="bio">Тестировал пак оптимизации на ранних этапах разработки. Помогал выявлять проблемы совместимости.</p>
+                        <div class="tags-row">
+                            <span class="member-tag">Tweaker</span>
+                            <span class="member-tag">Оптимизация</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- PROJECT TWEAKER SECTION -->
+        <section id="tweaker" class="content-tab">
+            <div class="project-hero">
+                <div class="ph-info">
+                    <div class="ph-header">
+                        <h2>M1kunTweaker</h2>
+                        <span class="status-badge danger">В разработке · BETA 1.0B</span>
+                    </div>
+                    <p class="ph-desc">Утилита для глубокой кастомизации и оптимизации Windows. Фокус на скорости работы, аккуратных безопасных настройках и автоматизации повседневных процессов.</p>
+                </div>
+            </div>
+
+            <div class="project-details-grid">
+                <!-- Features List -->
+                <div class="glass-block">
+                    <h3>Ключевые возможности</h3>
+                    <ul class="styled-checklist">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Полная кастомизация интерфейса Windows</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Оптимизация системной производительности</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Мониторинг ресурсов процессора и дисков</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Быстрая первоначальная настройка и активация Windows</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Резервное восстановление системы в 1 клик</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="tags-block">
+                        <span class="pill-badge soft">Оптимизация</span>
+                        <span class="pill-badge info">Твики UI</span>
+                        <span class="pill-badge success">Восстановление</span>
+                    </div>
+                </div>
+
+                <!-- Unique Features -->
+                <div class="glass-block">
+                    <h3>Уникальные особенности</h3>
+                    <ul class="styled-checklist">
+                        <li>
+                            <span class="star-icon">★</span>
+                            <span>Интуитивно понятный минималистичный дизайн, не требующий опыта работы с твикерами.</span>
+                        </li>
+                        <li>
+                            <span class="star-icon">★</span>
+                            <span>Автоматическое обнаружение и безопасное исправление распространенных системных сбоев.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Screenshots Placeholder -->
+            <div class="glass-block section-block">
+                <h3>Скриншоты интерфейса</h3>
+                <div class="media-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="placeholder-svg"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                    <p>Здесь будут размещены скриншоты интерфейса программы после завершения разработки</p>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <div class="glass-block section-block">
+                <h3>Системные требования</h3>
+                <div class="reqs-container">
+                    <div class="req-item">
+                        <span class="req-label">ОС:</span>
+                        <span class="req-value">Windows 10 / 11 (x64)</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Процессор:</span>
+                        <span class="req-value">2 ядра, 1.5 ГГц или выше</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">ОЗУ:</span>
+                        <span class="req-value">4 ГБ или больше</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Место на диске:</span>
+                        <span class="req-value">50 МБ для установки</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Важно:</span>
+                        <span class="req-value">Требуются права администратора для работы</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT NOTE SECTION -->
+        <section id="note" class="content-tab">
+            <div class="project-hero">
+                <div class="ph-info">
+                    <div class="ph-header">
+                        <h2>M1kunNote</h2>
+                        <span class="status-badge danger">В разработке · BETA 1.0B</span>
+                    </div>
+                    <p class="ph-desc">Современный текстовый редактор с поддержкой разметки Markdown, кастомными темами и горячими клавишами. Создан, чтобы писать и структурировать мысли без лишнего визуального шума.</p>
+                </div>
+            </div>
+
+            <div class="project-details-grid">
+                <!-- Features List -->
+                <div class="glass-block">
+                    <h3>Основные функции</h3>
+                    <ul class="styled-checklist">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Поддержка синтаксиса Markdown с живым превью</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Настраиваемые темы оформления и цветовые схемы</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Быстрый откат изменений (история версий)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Extra Features -->
+                <div class="glass-block">
+                    <h3>Дополнительные возможности</h3>
+                    <ul class="styled-checklist">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Экспорт документов в форматы PDF, HTML, DOCX</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Горячие клавиши для быстрого форматирования</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Автоматическое переключение светлой и тёмной тем</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Сценарии использования</h2>
+                    <p>Кому и как M1kunNote помогает в повседневной работе</p>
+                </div>
+                <div class="use-cases-grid">
+                    <div class="use-case-card">
+                        <div class="uc-icon">👩‍💻</div>
+                        <h4>Для разработчиков</h4>
+                        <p>Идеально подходит для написания README, ведения технической документации и сохранения сниппетов кода.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <div class="uc-icon">🎓</div>
+                        <h4>Для студентов</h4>
+                        <p>Отличный инструмент для быстрого и понятного конспектирования лекций и структурирования учебных тем.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <div class="uc-icon">💼</div>
+                        <h4>Для профессионалов</h4>
+                        <p>Подходит для ведения рабочих заметок на совещаниях, планирования задач и создания списков дел.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT READ SECTION -->
+        <section id="read" class="content-tab">
+            <div class="project-hero">
+                <div class="ph-info">
+                    <div class="ph-header">
+                        <h2>M1kunRead</h2>
+                        <span class="status-badge danger">В разработке · BETA 1.0B</span>
+                    </div>
+                    <p class="ph-desc">Удобная и сверхбыстрая утилита для записи ISO образов на USB-накопители и мгновенного создания загрузочных носителей. Просто выберите образ, укажите флешку и дождитесь проверки целостности.</p>
+                </div>
+            </div>
+
+            <div class="project-details-grid">
+                <!-- Features List -->
+                <div class="glass-block">
+                    <h3>Основные функции</h3>
+                    <ul class="styled-checklist">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Запись ISO файлов на USB с высокой скоростью</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Поддержка режимов UEFI и Legacy</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Детализированное отображение прогресса записи</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Поддержка файловых систем FAT32, NTFS, exFAT</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="tags-block">
+                        <span class="pill-badge soft">ISO на любые системы</span>
+                    </div>
+                </div>
+
+                <!-- Supported Systems -->
+                <div class="glass-block">
+                    <h3>Поддерживаемые системы</h3>
+                    <div class="systems-support">
+                        <div class="sys-item">
+                            <span class="sys-logo">🪟</span>
+                            <h4>Windows</h4>
+                            <p>Запись образов Windows 7, 8, 10, 11</p>
+                        </div>
+                        <div class="sys-item">
+                            <span class="sys-logo">🐧</span>
+                            <h4>Linux</h4>
+                            <p>Ubuntu, Fedora, Arch Linux и др.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <div class="glass-block section-block">
+                <h3>Системные требования</h3>
+                <div class="reqs-container">
+                    <div class="req-item">
+                        <span class="req-label">ОС:</span>
+                        <span class="req-value">Windows 7 или новее</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Интерфейс:</span>
+                        <span class="req-value">USB-порт для подключения накопителей (желательно USB 3.0)</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Память накопителя:</span>
+                        <span class="req-value">Минимум 4 ГБ свободного места на USB-флешке</span>
+                    </div>
+                    <div class="req-item">
+                        <span class="req-label">Важно:</span>
+                        <span class="req-value">Необходимы права администратора для записи на низком уровне</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <div class="footer-pill">
-            <span>© 2025 M1kunya. Все права защищены.</span>
-            <span class="separator">|</span>
-            <span>Контакты (Telegram): <a href="https://t.me/IAmStreamer" target="_blank">ТЫК</a></span>
-            <span class="separator">|</span>
-            <span>GitHub: <a href="https://github.com/Funtyra52" target="_blank">ТЫК</a></span>
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p class="copyright">© 2025 M1kunya. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="https://t.me/IAmStreamer" target="_blank" rel="noopener" class="footer-link-pill telegram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                    Telegram контакты
+                </a>
+                <a href="https://github.com/Funtyra52" target="_blank" rel="noopener" class="footer-link-pill github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    GitHub профиль
+                </a>
+            </div>
         </div>
     </footer>
-    <script src="mode-toggle.js"></script>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
     <script src="birthday.js"></script>
 </body>
 </html>
