@@ -121,4 +121,171 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.remove();
         }, 500);
     }
+
+    // ==========================================
+    // INTERACTIVE DEMOS IMPLEMENTATION
+    // ==========================================
+
+    // 1. M1kunTweaker Demo
+    const tweakerSideItems = document.querySelectorAll('.tweaker-side-item');
+    const tweakerPanelTabs = document.querySelectorAll('.tweaker-panel-tab');
+
+    tweakerSideItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetTab = item.getAttribute('data-tab');
+            
+            tweakerSideItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+
+            tweakerPanelTabs.forEach(tab => {
+                if (tab.id === `demo-tab-${targetTab}`) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    const btnClearDns = document.getElementById('btn-clear-dns');
+    if (btnClearDns) {
+        btnClearDns.addEventListener('click', () => {
+            const originalText = btnClearDns.textContent;
+            btnClearDns.disabled = true;
+            btnClearDns.textContent = 'Очистка...';
+            setTimeout(() => {
+                btnClearDns.textContent = 'Успешно очищено!';
+                setTimeout(() => {
+                    btnClearDns.disabled = false;
+                    btnClearDns.textContent = originalText;
+                }, 1500);
+            }, 1000);
+        });
+    }
+
+    const btnDisableTelemetry = document.getElementById('btn-disable-telemetry');
+    if (btnDisableTelemetry) {
+        btnDisableTelemetry.addEventListener('click', () => {
+            if (btnDisableTelemetry.classList.contains('btn-danger-style')) {
+                btnDisableTelemetry.textContent = 'Включить';
+                btnDisableTelemetry.classList.remove('btn-danger-style');
+                btnDisableTelemetry.classList.add('btn-secondary-style');
+            } else {
+                btnDisableTelemetry.textContent = 'Отключить';
+                btnDisableTelemetry.classList.remove('btn-secondary-style');
+                btnDisableTelemetry.classList.add('btn-danger-style');
+            }
+        });
+    }
+
+    const btnToggleUpdates = document.getElementById('btn-toggle-updates');
+    if (btnToggleUpdates) {
+        btnToggleUpdates.addEventListener('click', () => {
+            if (btnToggleUpdates.textContent === 'Приостановить') {
+                btnToggleUpdates.textContent = 'Возобновить';
+            } else {
+                btnToggleUpdates.textContent = 'Приостановить';
+            }
+        });
+    }
+
+    // 2. Note Editor Demo
+    const noteFiles = document.querySelectorAll('.note-file');
+    const noteInput = document.getElementById('note-demo-input');
+    const notePreview = document.getElementById('note-demo-preview');
+
+    function renderMarkdown(text) {
+        let html = text;
+        // Escape HTML tags to prevent XSS in demo
+        html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        
+        // Headers
+        html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
+        html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
+        html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
+        
+        // Bold
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Italic
+        html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        
+        // Unordered lists
+        html = html.replace(/^- (.*?)$/gm, '<li>$1</li>');
+        // Wrap adjacent li elements into a ul tag
+        html = html.replace(/(<li>.*?<\/li>)+/g, '<ul>$&</ul>');
+        // Remove nested/duplicate wraps
+        html = html.replace(/<\/ul>\s*<ul>/g, '');
+        
+        // Paragraphs
+        html = html.replace(/^(?!<h|<li|<ul|<ol)(.*?)$/gm, '<p>$1</p>');
+        // Remove empty paragraphs
+        html = html.replace(/<p><\/p>/g, '');
+        
+        return html;
+    }
+
+    if (noteInput && notePreview) {
+        noteInput.addEventListener('input', (e) => {
+            notePreview.innerHTML = renderMarkdown(e.target.value);
+        });
+
+        noteFiles.forEach(file => {
+            file.addEventListener('click', () => {
+                noteFiles.forEach(f => f.classList.remove('active'));
+                file.classList.add('active');
+
+                // Get unescaped content from data-content
+                let content = file.getAttribute('data-content');
+                // Replace escaped newlines
+                content = content.replace(/\\n/g, '\n');
+
+                noteInput.value = content;
+                notePreview.innerHTML = renderMarkdown(content);
+            });
+        });
+    }
+
+    // 3. Read Flasher Demo
+    const btnFlash = document.getElementById('read-btn-flash');
+    const progressArea = document.querySelector('.flash-progress-area');
+    const progressFill = document.getElementById('read-flash-progress');
+    const progressStatus = document.getElementById('read-flash-status');
+
+    if (btnFlash && progressArea && progressFill && progressStatus) {
+        btnFlash.addEventListener('click', () => {
+            btnFlash.disabled = true;
+            progressArea.style.display = 'flex';
+            progressFill.style.width = '0%';
+            
+            let progress = 0;
+            const statuses = [
+                { limit: 15, text: 'Подготовка к записи...' },
+                { limit: 40, text: 'Форматирование USB накопителя...' },
+                { limit: 80, text: 'Копирование файлов ISO...' },
+                { limit: 95, text: 'Проверка целостности данных...' },
+                { limit: 100, text: 'Завершение записи...' }
+            ];
+
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 5) + 2;
+                if (progress >= 100) {
+                    progress = 100;
+                    progressFill.style.width = '100%';
+                    progressStatus.textContent = 'Готово! Загрузочный диск успешно создан 🎉';
+                    btnFlash.disabled = false;
+                    btnFlash.textContent = 'Записать еще раз';
+                    clearInterval(interval);
+                } else {
+                    progressFill.style.width = `${progress}%`;
+                    
+                    // Find status text
+                    const currentStatus = statuses.find(s => progress <= s.limit);
+                    if (currentStatus) {
+                        progressStatus.textContent = `${currentStatus.text} (${progress}%)`;
+                    }
+                }
+            }, 150);
+        });
+    }
+
 });
