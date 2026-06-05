@@ -195,33 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const notePreview = document.getElementById('note-demo-preview');
 
     function renderMarkdown(text) {
-        let html = text;
         // Escape HTML tags to prevent XSS in demo
-        html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        
-        // Headers
-        html = html.replace(/^# (.*?)$/gm, '<h1>$1</h1>');
-        html = html.replace(/^## (.*?)$/gm, '<h2>$1</h2>');
-        html = html.replace(/^### (.*?)$/gm, '<h3>$1</h3>');
-        
-        // Bold
-        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        // Italic
-        html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        
-        // Unordered lists
-        html = html.replace(/^- (.*?)$/gm, '<li>$1</li>');
-        // Wrap adjacent li elements into a ul tag
-        html = html.replace(/(<li>.*?<\/li>)+/g, '<ul>$&</ul>');
-        // Remove nested/duplicate wraps
-        html = html.replace(/<\/ul>\s*<ul>/g, '');
-        
-        // Paragraphs
-        html = html.replace(/^(?!<h|<li|<ul|<ol)(.*?)$/gm, '<p>$1</p>');
-        // Remove empty paragraphs
-        html = html.replace(/<p><\/p>/g, '');
-        
-        return html;
+        const cleanText = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        // Использование библиотеки marked для полной поддержки синтаксиса Markdown
+        return marked.parse(cleanText);
     }
 
     if (noteInput && notePreview) {
